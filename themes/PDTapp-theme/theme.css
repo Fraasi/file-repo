@@ -1,0 +1,90 @@
+:root {
+	--container-background-color: hsl(0, 0%, 32%);   /* #525252 */
+	--div-background-color: hsl(228, 5%, 22%);  /* #35363A */
+	--div-text-color: hsl(0, 0%, 78%);		    /* #C7C7C7 */
+	--div-border-color: hsl(0, 0%, 16%);	    /* #292929 */
+	--border-borderradius: 4px;
+	--button-background-color-hover: hsl(240, 3%, 30%);	/* #4B4B50 */
+	--button-backgrund-color: hsl(0, 0%, 20%); 	/* #333 */
+	--link-color: hsl(120, 25%, 65%); 			/* darkseagreen */
+}
+
+body {
+	background-color: var(--container-background-color);
+	color: var(--div-text-color);
+	/* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.container {
+	width: 90vw;
+	height: 90vh;
+	margin: 0px auto;
+	background-color: var(--div-background-color);
+	border: var(--border-borderradius) solid var(--div-border-color);
+	border-radius: var(--border-borderradius);
+}
+
+.div {
+	width: 100px;
+	height: 100px;
+	border: var(--border-borderradius) solid var(--div-border-color);
+	background-color: var(--button-background-color-hover);
+}
+
+a {
+	color: var(--link-color);
+}
+
+/* Button */
+button {
+	display: block;
+	margin: 6px auto 0px auto;
+	border: none;
+	background-color: var(--button-background-color);
+	border-radius: var(--border-borderradius);
+	color: var(--div-text-color);
+	padding: 1px 5px;
+	box-shadow: 0px 0px 2px 1px white;
+	text-align: center;
+}
+button:hover {
+	background-color: var(--button-background-color-hover);
+}
+button:focus {
+	outline:none;
+}
+button:active {
+	background-color: #585864;
+}
+
+/* button click ripple effect */
+button {
+	position: relative;
+	overflow: hidden;
+}
+button:after {
+	content: "";
+	position: absolute;
+	background: rgba(255,255,255, 0.4);
+	top: 50%;
+	left: 50%;
+	width: 5px;
+	height: 5px;
+	border-radius: 100%;
+	opacity: 0;
+  } 
+  button:focus:not(:active):after {
+	animation: ripple 0.5s ease-out;
+  }
+  @keyframes ripple {
+   0% {
+	 opacity: 1;
+	 transform: scale(0,0);
+   } 
+   100% {
+	 transform: scale(50,50);
+	 opacity: 0;
+	}
+  }
+  /* button end */
