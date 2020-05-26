@@ -1,0 +1,30 @@
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[user]
+	name = Fraasi
+	email = "*"
+[credential]
+	helper = wincred
+[alias]
+	s = status -sb
+	b = branch
+	co = checkout
+	aa = add --all
+	c = commit
+	cm = commit -m
+	acm = "!git add -A && git commit -m"
+	ca = commit --amend
+	wc = whatchanged
+	po = push origin
+	ls = log --stat --pretty=short --graph
+	opengh = "!sh start $(GHURL=$(git config remote.origin.url) && echo ${GHURL:0:-4})"
+	opengh2 = "!sh start $(git config remote.origin.url | cut -f1-2 -d.)"
+[grep]
+	lineNumber = true
+[color]
+	ui = auto
+[core]
+	autocrlf = false
